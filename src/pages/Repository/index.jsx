@@ -7,6 +7,7 @@ import {
   BackButton,
   IssuesList,
   PageAction,
+  FilterList,
 } from './style'
 import api from "../../services/api"
 
@@ -16,6 +17,12 @@ export default function Repository() {
   const [page, setPage] = React.useState(1)
   const [issues, setIssues] = React.useState([])
   const [loading, setLoading] = React.useState(true)
+  const [filters, setFilters] = React.useState([
+    { state: 'all', label: 'Todos', active: false },
+    { state: 'open', label: 'Abertos', active: false },
+    { state: 'closed', label: 'Fechados', active: true },
+  ])
+  const [activeItem, setActiveItem] = React.useState(0)
   const { reponame } = useParams()
 
   // Methods
@@ -27,10 +34,9 @@ export default function Repository() {
 
   //  Effect
   React.useEffect(() => {
-
     api.get(`repos/${reponame}/issues`, {
       params: {
-        state: 'open',
+        state: filters[activeItem].state,
         page,
         per_page: 5,
       }
@@ -38,12 +44,12 @@ export default function Repository() {
       .then(({ data }) => setIssues(data))
       .catch(({ message }) => console.error(message))
 
-  }, [page])
+  }, [page, activeItem, filters])
 
   React.useEffect(() => {
     api.get(`repos/${reponame}/issues`, {
       params: {
-        state: 'open',
+        state: filters[activeItem].state,
         per_page: 5,
       }
     })
@@ -55,7 +61,7 @@ export default function Repository() {
       .then(() => setLoading(false))
       .catch(({ message }) => console.error(message))
 
-  }, [reponame])
+  }, [reponame, activeItem, filters])
 
   //  Render
   return (
@@ -76,10 +82,22 @@ export default function Repository() {
             <p>{repository.description}</p>
           </Owner>
 
+          <FilterList active={activeItem}>
+            {filters.map((filter, index) => (
+              <button
+                type="button"
+                key={filter.label}
+                onClick={() => { setActiveItem(index) }}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </FilterList>
+
           <IssuesList>
 
             {issues.length <= 0 ?
-              <span>Não possui Issues abertas</span>
+              <h1>Este repositório não possui Issues!</h1>
               :
               issues?.map((issue) => (
                 <li key={issue?.id}>

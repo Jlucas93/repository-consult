@@ -48,6 +48,13 @@ export const IssuesList = styled.ul`
   border-top: 1px solid #eee;
   list-style: none;
 
+    h1{
+      margin: 40px auto;
+      text-align: center;
+      font-size: 20px;
+      color: #0071DB;
+    }
+
     li{
       display: flex;
       padding: 15px 10px;
@@ -108,7 +115,7 @@ export const PageAction = styled.div`
     button{
       outline: 0;
       border: 0;
-      background: #222;
+      background: #0071DB;
       color: #FFF;
       padding: 5px 10px;
       border-radius: 4px;
@@ -119,3 +126,19 @@ export const PageAction = styled.div`
         }
     }
 `
+
+export const FilterList = styled.div`
+  margin: 15px 0;
+    button{
+      outline:0;
+      border:0;
+      border-radius: 4px;
+      padding: 5px;
+      margin: 0 3px;
+
+        &:nth-child(${props => props.active + 1}){
+          background: #0071DB;
+          color: #FFFF;
+        }
+    }
+`;

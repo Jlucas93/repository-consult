@@ -9,7 +9,7 @@ export default function MyRoutes() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/repository' element={<Repository />} >
-        <Route path=':repository' element={<Repository />} />
+        <Route path=':reponame' element={<Repository />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -22,23 +22,26 @@ export const Container = styled.div`
 
 
 `;
-
+export const SpanError = styled.span`
+  color: #FF0000;
+`
 export const Form = styled.form`
   margin-top: 30px;
   display:flex;
   flex-direction: row;
 
-  input{
+
+
+`;
+
+export const Input = styled.input`
     flex:1;
     border: 1px solid ${props => (props.error ? '#FF0000' : '#eee')};
     padding: 10px 15px;
     border-radius: 4px;
     font-size: 17px;
-  }
+`
 
-`;
-
-//Criando animcação do botao
 const animate = keyframes`
   from{
     transform: rotate(0deg);

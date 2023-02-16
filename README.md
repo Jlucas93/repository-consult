@@ -11,3 +11,11 @@
 <p> Uma vez que o repositpório tenha sido encontrado você pode olhar mais detealhes sobre, incluindo as issues que ele contém. Como mostra a imagem abaixo</p>
 
 <img src = "./public/repoinfo.png" alt="repo info" />
+
+# Para instalar e rodar o projeto
+
+´´´
+npm install ou yarn 
+
+npm run dev ou yarn dev
+´´´

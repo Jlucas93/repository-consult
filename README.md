@@ -14,8 +14,8 @@
 
 # Para instalar e rodar o projeto
 
-´´´
+```
 npm install ou yarn 
 
 npm run dev ou yarn dev
-´´´
+```

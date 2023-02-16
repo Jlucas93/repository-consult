@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-<p>Um projeto feito em react craido com vite </p>
+<p>Um projeto em react usando o vite para criar o app, utiliza do react router dom versão para lidar com a troca de páginas, e axios para o consumo da api. Para estilização utiliza a lib style components</p>
 
 <p>O projeto consome a API do github, onde busca um repositório do git pelo seu nome, e irá armazenar no LocalStorage do navegador, assim não persiste mesmo atualizando a página ou fechando o navegador.</p>
 

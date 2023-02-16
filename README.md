@@ -10,4 +10,4 @@
 
 <p> Uma vez que o repositpório tenha sido encontrado você pode olhar mais detealhes sobre, incluindo as issues que ele contém. Como mostra a imagem abaixo</p>
 
-<img src = "./public/repoinog.png">
+<img src = "./public/repoinfo.png" alt="repo info>
